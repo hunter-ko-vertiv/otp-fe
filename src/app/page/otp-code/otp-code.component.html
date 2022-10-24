@@ -1,0 +1,14 @@
+<section *ngIf="thirtySecond$ | async" class="bg-white relative overflow-y-scroll">
+  <div class="w-96 text-center text-3xl w-full py-4"><strong>Otp</strong> Verify</div>
+  <div class="process-bar bg-sky-700"></div>
+  <div class="p-2">
+    <div *ngFor="let user of users" class="otp-card border rounded border-gray-200 items-center">
+      <img class="rounded-full overflow-hidden w-24 h-24 border border-gray-200 m-4"
+           src="{{'https://robohash.org/' + user.username}}" alt="">
+      <div class="flex flex-col">
+        <div class="text-xl text-sky-700">{{user.username}}</div>
+        <h3 class="text-2xl">{{ user.secret | cryptoOtp:(thirtySecond$ | async)}}</h3>
+      </div>
+    </div>
+  </div>
+</section>

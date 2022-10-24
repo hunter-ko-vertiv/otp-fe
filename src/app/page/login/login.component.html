@@ -1,0 +1,26 @@
+<form (ngSubmit)="submit()" [formGroup]="loginFormGroup" class="flex justify-start flex-col bg-white px-10 py-10 rounded">
+  <h1 class="text-center text-2xl mb-8">Welcome Otp Share</h1>
+  <label for="username" class="mb-1">User Name</label>
+  <input id="username" formControlName="username" class="bg-white outline-none rounded-sm border border-sky-700 mb-2 p-2" type="text">
+  <label for="password" class="mb-1">Password</label>
+  <input id="password" formControlName="password" class="bg-white outline-none rounded-sm border border-sky-700 mb-2 p-2" type="password">
+  <input type="submit" class="mt-4 p-2 bg-sky-700 text-white rounded cursor-pointer">
+  <button (click)="navigateRegister()" class="mt-2 p-2 text-sky-700 bg-white rounded border border-sky-700">Register</button>
+</form>
+
+<dialog class="p-8 w-96" appDialog #dialog>
+  <ng-template appDialogHeader>
+    <h1 class="text-xl">Hi {{currentUser}}, Please enter <strong class="text-sky-700">Otp Code</strong></h1>
+  </ng-template>
+  <ng-template appDialogContent>
+    <form (ngSubmit)="submitOtp()" [formGroup]="twoFactorValidateForm" class="mt-4 flex items-center justify-center">
+      <input formControlName="otpCode" id="otpInput" class="w-72 outline-none border py-2 px-1 rounded" type="text">
+      <input class="border text-sky-700 border-sky-700 rounded px-4 py-2 ml-4 cursor-pointer" type="submit" value="Verify">
+    </form>
+  </ng-template>
+  <ng-template appDialogFooter>
+    <div class="text-right text-gray-400 text-sm underline cursor-pointer mt-4">
+      Back to Login
+    </div>
+  </ng-template>
+</dialog>

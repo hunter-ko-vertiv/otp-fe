@@ -1,0 +1,33 @@
+.process-bar {
+  height: 10px;
+  border-radius: 2px;
+  animation-duration: 30s;
+  animation-name: process;
+  animation-iteration-count: infinite;
+}
+
+section {
+  max-height: 80vh;
+}
+
+@keyframes process {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.otp-card {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+}
+
+.add-collection {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  right: 24px;
+  top: 24px;
+}

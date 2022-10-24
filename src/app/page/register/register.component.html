@@ -1,0 +1,18 @@
+<ng-container *ngIf="!isCreated else registerSuccess">
+  <form (ngSubmit)="submit()" [formGroup]="registerForm" class="flex justify-start flex-col bg-white px-10 py-10 rounded">
+    <h1 class="text-center text-2xl mb-8">Register new <strong class="text-sky-700">Account</strong></h1>
+    <label for="username" class="mb-1">User Name</label>
+    <input id="username" formControlName="username" class="bg-white outline-none rounded-sm border border-sky-700 mb-2 p-2" type="text">
+    <label for="password" class="mb-1">Password</label>
+    <input id="password" formControlName="password" class="bg-white outline-none rounded-sm border border-sky-700 mb-2 p-2" type="password">
+    <input *ngIf="registerForm" [disabled]="!registerForm.valid" type="submit" value="Register" class="mt-4 p-2 bg-sky-700 text-white rounded cursor-pointer">
+  </form>
+</ng-container>
+<ng-template #registerSuccess>
+  <div class="flex flex-col items-center mb-24 bg-white py-10 px-24">
+    <h1 class="text-3xl mb-8">Registration <strong class="text-sky-700">successfully</strong></h1>
+    <div class="lds-roller mb-8"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    <div>Please wait while redirecting...</div>
+    <a class="mt-4" routerLink="/login">Or click <strong class="text-sky-700">link</strong></a>
+  </div>
+</ng-template>
